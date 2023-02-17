@@ -94,9 +94,8 @@ const loadPostIts = () => {
             document.querySelector('.fa-solid.fa-plus').style.color = "rgba(0, 0, 0, 0.589)"
         })
     }
-    else {
+    else
         postItContainer.innerHTML += `<button class="addNewPostIt" onclick="newPostIt()"><i class="fa-solid fa-plus"></i></button>`
-    }
 }
 
 // WHEN CLICK IN "NEW POST IT" BUTTON IT OPENS MODAL AND OPENS THE "ADD POST IT" SECTION
@@ -181,6 +180,12 @@ saveBtn.addEventListener('click', () => {
         let rotation = Math.floor(Math.random() * 4)
         if (Math.random() > 0.5) rotation *= -1
         
+        // if the text has line breaks, covert "text" to an array and join it with "<br>"
+        if (text.value.includes("\n")) {
+            const textArray = text.value.split("\n")
+            text.value = textArray.join("<br>")
+        }
+
         if (dataSaved) saved = JSON.parse(dataSaved)
         saved.push({
             id,
@@ -306,3 +311,4 @@ deleteEditBtn.addEventListener('click', () => {
     const edit = document.querySelector("#editPostIt")
     edit.style.transform = `rotate(0deg)`
 })
+
