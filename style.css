@@ -28,12 +28,6 @@ body {
     grid-gap: 20px;
 }
 
-/* media min 420 */
-@media  (max-width: 420px) {
-    #postItContainer {
-        margin-left: -20px;
-    }
-}
 .postIt {
     margin: 0 auto;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -222,4 +216,118 @@ body {
     left: 185px;
     z-index: 1;
     cursor: pointer;
+}
+
+
+
+@media  (max-width: 464px) {
+    #postItContainer {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+
+    }
+
+    .postIt {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+
+    .postIt h6 {
+        font-size: 15px !important;
+        margin-top: 10px !important;
+        padding-top: 5px !important;
+    }
+
+    .postIt p {
+        font-size: 12px !important;
+        width: 290px !important;
+        height: 230px !important;   
+    }
+
+    .addNewPostIt {
+        height: 300px !important;
+        width: 300px !important;
+    }
+
+    .pin {
+        width: 15px !important;
+        height: 15px !important;
+        left: 142.5px !important;
+    }
+
+    .fa-solid.fa-plus {
+        font-size: 50px !important;
+        padding-left: 3px !important;
+    }
+}
+
+@media (max-width: 358px) {
+    #postItContainer {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .postIt {
+        width: 250px !important;
+        height: 250px !important;
+    }
+
+    .postIt h6 {
+        font-size: 12px !important;
+        margin-top: 10px !important;
+        padding-top: 5px !important;
+    }
+
+    .postIt p {
+        font-size: 10px !important;
+        width: 240px !important;
+        height: 180px !important;   
+    }
+
+    .addNewPostIt {
+        height: 250px !important;
+        width: 250px !important;
+    }
+
+    .pin {
+        width: 10px !important;
+        height: 10px !important;
+        left: 120px !important;
+    }
+}
+
+@media (max-width: 309px) {
+    #postItContainer {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .postIt {
+        width: 200px !important;
+        height: 200px !important;
+    }
+
+    .postIt h6 {
+        font-size: 10px !important;
+        margin-top: 10px !important;
+        padding-top: 5px !important;
+    }
+
+    .postIt p {
+        font-size: 8px !important;
+        width: 190px !important;
+        height: 130px !important;   
+    }
+
+    .addNewPostIt {
+        height: 200px !important;
+        width: 200px !important;
+    }
+
+    .pin {
+        width: 7px !important;
+        height: 7px !important;
+        left: 97.5px !important;
+    }
 }
