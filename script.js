@@ -62,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 const loadPostIts = () => {
+    const postItContainer = document.getElementById("postItContainer")
     const dataSeved = localStorage.getItem("dataSeved")
     if (dataSeved) {
         saved = JSON.parse(dataSeved)
-        const postItContainer = document.getElementById("postItContainer")
         postItContainer.innerHTML = ""
         saved.forEach(({ id, title, text, color, rotation }) => {
             postItContainer.innerHTML += `
@@ -93,6 +93,9 @@ const loadPostIts = () => {
         addNewPostIt.addEventListener('mouseout', () => {
             document.querySelector('.fa-solid.fa-plus').style.color = "rgba(0, 0, 0, 0.589)"
         })
+    }
+    else {
+        postItContainer.innerHTML += `<button class="addNewPostIt" onclick="newPostIt()"><i class="fa-solid fa-plus"></i></button>`
     }
 }
 
@@ -213,7 +216,8 @@ const resetEditPostIt = () => {
 // WHEN CLICK IN "..." BUTTON IT OPENS MODAL AND OPENS THE "EDIT POST IT" SECTION
 const editPostIt = (id) => {
     savedId = parseInt(id)
-    document.getElementById(`card-${savedId}`).style.opacity = "0"
+    const card = document.getElementById(`card-${savedId}`)
+    if (card) card.style.opacity = "0"
     const modal = document.querySelector("#modal")
     const edit = document.querySelector("#editPostIt")
     const add = document.querySelector("#addPostIt")
@@ -237,14 +241,16 @@ const editPostIt = (id) => {
     window.onclick = function (event) {
         if (event.target == document.getElementById("modal")) {
             closeModal()
-            document.getElementById(`card-${savedId}`).style.opacity = "1"
+            const card = document.getElementById(`card-${savedId}`)
+            if (card) card.style.opacity = "1"
         }
     }
 
     document.addEventListener("keydown", (event) => {
         if (event.key == "Escape") {
             closeModal()
-            document.getElementById(`card-${savedId}`).style.opacity = "1"
+            const card = document.getElementById(`card-${savedId}`)
+            if (card) card.style.opacity = "1"
         }
     })
 
@@ -266,7 +272,8 @@ saveEditBtn.addEventListener('click', () => {
                 postIt.rotation = rotation
                 localStorage.setItem("dataSeved", JSON.stringify(saved))
 
-                document.getElementById(`card-${savedId}`).style.opacity = "1"
+                const card = document.getElementById(`card-${savedId}`)
+            if (card) card.style.opacity = "1"
 
                 closeModal()
                 resetEditPostIt()
@@ -288,7 +295,8 @@ deleteEditBtn.addEventListener('click', () => {
         saved = saved.filter(postIt => postIt.id !== savedId)
         localStorage.setItem("dataSeved", JSON.stringify(saved))
 
-        document.getElementById(`card-${savedId}`).style.opacity = "1"
+        const card = document.getElementById(`card-${savedId}`)
+            if (card) card.style.opacity = "1"
 
         closeModal()
         resetEditPostIt()
