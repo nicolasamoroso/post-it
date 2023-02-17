@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/95b02ed607.js" crossorigin="anonymous"></script>
+    <title>post it</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="postItContainer"></div>
+
+    <div id="modal">
+
+        <div id="addPostIt">
+            <div class="postIt">
+                <div class="header">
+                    <input id="title" type="text" placeholder="Title">
+                    <div class="saveDelBtns">
+
+                        <div id="saveBtn">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div id="cancelBtn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <textarea id="text" autofocus placeholder="Write something..."></textarea>
+            </div>
+        </div>
+
+        <div id="editPostIt">
+            <div class="postIt">
+                <div class="header">
+                    <input id="editTitle" type="text" placeholder="Title">
+                    <div class="saveDelBtns">
+
+                        <div id="editSave">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div id="editDelete">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <textarea id="editText" autofocus placeholder="Write something..."></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
