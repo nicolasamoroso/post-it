@@ -223,6 +223,7 @@ const editPostIt = (id) => {
     savedId = parseInt(id)
     const card = document.getElementById(`card-${savedId}`)
     if (card) card.style.opacity = "0"
+
     const modal = document.querySelector("#modal")
     const edit = document.querySelector("#editPostIt")
     const add = document.querySelector("#addPostIt")
@@ -235,9 +236,15 @@ const editPostIt = (id) => {
     if (dataSaved) {
         saved = JSON.parse(dataSaved)
         const postIt = saved.find(postIt => postIt.id === savedId)
-        const { title, text, color, rotation } = postIt
+        let { title, text, color, rotation } = postIt
         edit.style.transform = `rotate(${rotation}deg)`
         document.getElementById('editTitle').value = title
+
+        if (text.includes("<br>")) {
+            const textArray = text.split("<br>")
+            text = textArray.join("\n")
+        }
+        console.log(text)
         document.getElementById('editText').value = text
         document.getElementById('editPostIt').style.backgroundColor = color
     }
